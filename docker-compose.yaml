@@ -3,7 +3,9 @@ version: '3'
 services: 
 
   db:
-    image: mysql:5.7
+    build:
+      context: ./
+      dockerfile: Dockerfile-mysql
     command: --innodb-use-native-aio=0
     container_name: db
     restart: always
@@ -24,14 +26,11 @@ services:
       - node-network
       
   app:
-    build: 
-      context: node
+    image: francoednaldo/node
     container_name: app
-    command: node server.js
+    command: npm start
     networks: 
       - node-network
-    volumes: 
-      - ./node:/usr/src/app
     tty: true
     ports: 
       - "3000:3000"

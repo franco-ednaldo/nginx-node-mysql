@@ -8,14 +8,6 @@ const config = {
     database:'nodedb'
 };
   const mysql = require('mysql')
-  const connection = mysql.createConnection(config)
-
-  const sql = `INSERT INTO people(name) values('EDNALDO')`
-  const sqlQuery = `SELECT name FROM people WHERE name='EDNALDO'`
-  connection.query(sql)
-
-  connection.end()
-
 
 app.get('/', (req,res) => {
   const con = mysql.createConnection(config)
