@@ -26,7 +26,7 @@ services:
       - node-network
       
   app:
-    image: francoednaldo/node
+    image: francoednaldo/node:1.0
     container_name: app
     command: npm start
     networks: 
